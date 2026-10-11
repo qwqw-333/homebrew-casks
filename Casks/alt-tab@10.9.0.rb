@@ -31,13 +31,16 @@ cask "alt-tab@10.9.0" do
       "74a22022584e534f626a65637400080011001a00240029003200370049004c00510053005b0061006e007c009a00a100ac" \
       "00b400bc00be00c000c200c400c600c800ca00cd00d200d300d800e300ec00f700fa0000000000000201000000000000" \
       "002300000000000000000000000000000103"
-    ]
+    ], writable_paths: ["Library/Preferences"], writable_base: :home
     run "/usr/bin/defaults",
-        args: ["write", "com.lwouis.alt-tab-macos", "updatePolicy", "-string", "0"]
+        args: ["write", "com.lwouis.alt-tab-macos", "updatePolicy", "-string", "0"],
+        writable_paths: ["Library/Preferences"], writable_base: :home
     run "/usr/bin/defaults",
-        args: ["write", "com.lwouis.alt-tab-macos", "SUEnableAutomaticChecks", "-bool", "false"]
+        args: ["write", "com.lwouis.alt-tab-macos", "SUEnableAutomaticChecks", "-bool", "false"],
+        writable_paths: ["Library/Preferences"], writable_base: :home
     run "/usr/bin/defaults",
-        args: ["write", "com.lwouis.alt-tab-macos", "SUAutomaticallyUpdate", "-bool", "false"]
+        args: ["write", "com.lwouis.alt-tab-macos", "SUAutomaticallyUpdate", "-bool", "false"],
+        writable_paths: ["Library/Preferences"], writable_base: :home
   end
 
   uninstall quit: "com.lwouis.alt-tab-macos"
